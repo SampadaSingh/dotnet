@@ -1,0 +1,43 @@
+using System;
+using System.Security.AccessControl;
+
+class Rectangle
+{
+    public double length;
+    public double breadth;
+
+    public Rectangle(double length, double breadth)
+    {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    public double Area()
+    {
+        return length * breadth;
+    }
+
+    //overloading
+    public double Area(double length, double breadth)
+    {
+        return length * breadth;
+    }
+
+    public double Perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+}
+
+class Qverloading1
+{
+    public static void Main(string[] args)
+    {
+
+        Rectangle r1 = new Rectangle(2,5);
+
+        Console.WriteLine("Area : " + r1.Area());
+        Console.WriteLine("Area via overloading: " + r1.Area(5, 5));
+        Console.WriteLine("Perimeter : "+ r1.Perimeter());
+    }
+}
