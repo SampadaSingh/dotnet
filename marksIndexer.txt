@@ -1,0 +1,48 @@
+using System;
+
+namespace Lab_Q1
+{
+    class Student
+    {
+        private float[] marks = new float[5];
+
+        public float this[int index]
+        {
+            get
+            {
+                return marks[index];
+            }
+            set
+            {
+                while (value < 0 || value > 40)
+                {
+                    Console.WriteLine("Invalid Marks! Please enter marks between 0 and 40.");
+                    value = float.Parse(Console.ReadLine());
+                }
+                marks[index] = value;
+            }
+        }
+
+        public void ShowMarks()
+        {
+            Console.WriteLine("\nMarks Obtained:");
+            for (int i = 0; i < marks.Length; i++)
+                Console.WriteLine($"Subject {i + 1}: {marks[i]}");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Student student = new Student();
+            Console.WriteLine("Enter Marks for 5 Subjects:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Subject {i + 1}: ");
+                student[i] = float.Parse(Console.ReadLine());
+            }
+            student.ShowMarks();
+        }
+    }
+}

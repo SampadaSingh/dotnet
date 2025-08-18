@@ -1,0 +1,122 @@
+/*indes.cshtml*/
+@page
+@{
+    ViewData["Title"] = "Simple Interest Form";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Interest Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Interest Calculator</h2>
+
+    <form method="get" action="/Result">
+        <label>Principal:</label>
+        <input type="number" step="0.01" name="p" required />
+
+        <label>Rate (%):</label>
+        <input type="number" step="0.01" name="r" required />
+
+        <label>Time (years):</label>
+        <input type="number" step="0.01" name="t" required />
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div class="footer">
+        <p>Lab Work by <strong>Sampada Singh</strong></p>
+    </div>
+
+</body>
+</html>
+/*result.cshtml*/
+@page
+@{
+    double p = Convert.ToDouble(Request.Query["p"]);
+    double r = Convert.ToDouble(Request.Query["r"]);
+    double t = Convert.ToDouble(Request.Query["t"]);
+    double interest = (p * r * t) / 100;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Result</title>
+</head>
+<body style="font-family: sans-serif; padding: 40px; background-color: #f9f9f9;">
+
+    <h2>Result</h2>
+
+    <p><strong>Principal:</strong> @p</p>
+    <p><strong>Rate:</strong> @r %</p>
+    <p><strong>Time:</strong> @t years</p>
+    <p><strong>Simple Interest:</strong> @interest</p>
+
+    <br />
+    <a href="/">Go Back</a>
+
+    <br />
+    <br />
+
+</body>
+</html>
+/*program.cs*/
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRazorPages();
+var app = builder.Build();
+
+app.UseStaticFiles();
+app.UseRouting();
+app.MapRazorPages();
+app.Run();

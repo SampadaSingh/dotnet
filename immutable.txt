@@ -1,0 +1,20 @@
+using System;
+
+namespace immutable
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str1 = "Hello";
+            string str2 = str1;
+
+            str1 += " World";
+
+            Console.WriteLine("String Immutability Demonstration:");
+            Console.WriteLine("Original string: " + str2);
+            Console.WriteLine("Modified string: " + str1);
+            Console.WriteLine("Strings are immutable because 'str1' did not modify 'str2'; a new string was created.");
+        }
+    }
+}

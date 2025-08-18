@@ -1,0 +1,80 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+class Student
+{
+    public string Name;
+    public int Roll;
+    public int Age;
+
+    public Student(string name, int roll, int age)
+    {
+        Name = name;
+        Roll = roll;
+        Age = age;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Roll: {Roll}, Name: {Name}, Age: {Age}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("----- Using ArrayList -----");
+        ArrayList studentList = new ArrayList();
+        studentList.Add(new Student("Anita", 1, 20));
+        studentList.Add(new Student("Aayush", 2, 21));
+
+        foreach (Student s in studentList)
+        {
+            s.Display();
+        }
+
+        Console.WriteLine("\n----- Using Hashtable -----");
+        ArrayList studentHashTables = new ArrayList();
+
+        Hashtable st1 = new Hashtable();
+        st1.Add("Roll", 3);
+        st1.Add("Name", "Sneha");
+        st1.Add("Age", 19);
+
+        Hashtable st2 = new Hashtable();
+        st2.Add("Roll", 4);
+        st2.Add("Name", "Ramesh");
+        st2.Add("Age", 22);
+
+        studentHashTables.Add(st1);
+        studentHashTables.Add(st2);
+
+        foreach (Hashtable student in studentHashTables)
+        {
+            Console.WriteLine($"Roll: {student["Roll"]}, Name: {student["Name"]}, Age: {student["Age"]}");
+        }
+
+        Console.WriteLine("\n----- Using Dictionary -----");
+        List<Dictionary<string, string>> studentDicts = new List<Dictionary<string, string>>();
+
+        Dictionary<string, string> d1 = new Dictionary<string, string>();
+        d1.Add("Roll", "5");
+        d1.Add("Name", "Meena");
+        d1.Add("Age", "20");
+
+        Dictionary<string, string> d2 = new Dictionary<string, string>();
+        d2.Add("Roll", "6");
+        d2.Add("Name", "Bikash");
+        d2.Add("Age", "21");
+
+        studentDicts.Add(d1);
+        studentDicts.Add(d2);
+
+        foreach (Dictionary<string, string> student in studentDicts)
+        {
+            Console.WriteLine($"Roll: {student["Roll"]}, Name: {student["Name"]}, Age: {student["Age"]}");
+        }
+    }
+}

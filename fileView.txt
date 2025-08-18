@@ -1,0 +1,101 @@
+/*designer.cs*/
+namespace Form
+{
+    partial class Form2
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.ToolStripMenuItem fileTool, newTool, openTool, saveTool, exitTool;
+        private System.Windows.Forms.Label infoLbl;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null) components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            menu = new System.Windows.Forms.MenuStrip();
+            fileTool = new System.Windows.Forms.ToolStripMenuItem();
+            newTool = new System.Windows.Forms.ToolStripMenuItem();
+            openTool = new System.Windows.Forms.ToolStripMenuItem();
+            saveTool = new System.Windows.Forms.ToolStripMenuItem();
+            exitTool = new System.Windows.Forms.ToolStripMenuItem();
+            infoLbl = new System.Windows.Forms.Label();
+
+            // Menu setup
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                 this.fileTool
+            });
+            menu.Location = new System.Drawing.Point(0, 0);
+            menu.Size = new System.Drawing.Size(800, 28);
+
+            // File menu
+            fileTool.Text = "File";
+            fileTool.DropDownItems.AddRange(new[] { newTool, openTool, saveTool, exitTool });
+
+            // Menu items
+            newTool.Text = "New";
+            openTool.Text = "Open";
+            saveTool.Text = "Save";
+            exitTool.Text = "Exit";
+
+            newTool.Click += new System.EventHandler(this.newTool_Click);
+            openTool.Click += new System.EventHandler(this.openTool_Click);
+            saveTool.Click += new System.EventHandler(this.saveTool_Click);
+            exitTool.Click += new System.EventHandler(this.exitTool_Click);
+
+            // Label
+            infoLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            infoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            infoLbl.Text = "Click on a menu item.";
+            infoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            // Form
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(infoLbl);
+            Controls.Add(menu);
+            MainMenuStrip = menu;
+            Name = "Form2";
+            Text = "Form2";
+        }
+    }
+}
+
+/*program.cs*/
+using System;
+using System.Windows.Forms;
+
+namespace Form
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void newTool_Click(object sender, EventArgs e)
+        {
+            infoLbl.Text = "New File Created.";
+        }
+
+        private void openTool_Click(object sender, EventArgs e)
+        {
+            infoLbl.Text = "File Opened.";
+        }
+
+        private void saveTool_Click(object sender, EventArgs e)
+        {
+            infoLbl.Text = "File Saved.";
+        }
+
+        private void exitTool_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

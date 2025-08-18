@@ -1,0 +1,30 @@
+using System;
+
+class Vehicle
+{
+    public virtual void StartEngine()
+    {
+        Console.WriteLine("Vehicle engine starts");
+    }
+}
+
+class Car : Vehicle
+{
+    public override void StartEngine()
+    {
+        Console.WriteLine("Car engine starts");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("--Method Overriding--");
+        Vehicle vehicle = new Vehicle();
+        vehicle.StartEngine();
+
+        Car car = new Car();
+        car.StartEngine();
+    }
+}

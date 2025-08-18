@@ -1,0 +1,17 @@
+using System;
+using System.Linq;
+class Program
+{
+    static void Main()
+    {
+        string[] names = { "Ram", "Shyam", "Hari", "Bikash", "Mahesh" };
+
+        var sortedNames = names.OrderBy(n => n);
+
+        Console.WriteLine("Sorted Names:");
+        foreach (var name in sortedNames)
+        {
+            Console.WriteLine(name);
+        }
+    }
+}

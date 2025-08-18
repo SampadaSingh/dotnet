@@ -1,0 +1,44 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Student
+{
+    public int Id;
+    public string Name;
+    public int DeptId;
+}
+
+class Department
+{
+    public int DeptId;
+    public string DeptName;
+}
+
+class Program
+{
+    static void Main()
+    {
+        var students = new List<Student>
+        {
+            new Student { Id = 1, Name = "Anita", DeptId = 101 },
+            new Student { Id = 2, Name = "Rohan", DeptId = 102 }
+        };
+
+        var departments = new List<Department>
+        {
+            new Department { DeptId = 101, DeptName = "BCA" },
+            new Department { DeptId = 102, DeptName = "BBM" }
+        };
+
+        var joined = from s in students
+                     join d in departments on s.DeptId equals d.DeptId
+                     select new { s.Name, d.DeptName };
+
+        Console.WriteLine("Student Name - Department");
+        foreach (var item in joined)
+        {
+            Console.WriteLine($"{item.Name} - {item.DeptName}");
+        }
+    }
+}

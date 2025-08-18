@@ -1,0 +1,41 @@
+using System;
+
+interface IAnimal
+{
+    void Eat();
+}
+
+interface IDog
+{
+    void Bark();
+}
+
+class LabradorMI : IAnimal, IDog
+{
+    public void Eat()
+    {
+        Console.WriteLine("Labrador eats.");
+    }
+
+    public void Bark()
+    {
+        Console.WriteLine("Labrador barks.");
+    }
+
+    public void Play()
+    {
+        Console.WriteLine("Labrador plays.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Multiple Inheritance:");
+        LabradorMI lab = new LabradorMI();
+        lab.Eat();
+        lab.Bark();
+        lab.Play();
+    }
+}

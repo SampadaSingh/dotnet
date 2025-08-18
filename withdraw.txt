@@ -1,0 +1,30 @@
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Balance: ");
+            double balance = double.Parse(Console.ReadLine());
+
+            Console.Write("Withdraw: ");
+            double withdraw = double.Parse(Console.ReadLine());
+
+            if (withdraw > balance)
+                throw new ApplicationException("Insufficient balance.");
+
+            Console.WriteLine("Remaining Balance: " + (balance - withdraw));
+        }
+        catch (ApplicationException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+        catch
+        {
+            Console.WriteLine("Invalid input.");
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+using System;
+class Number
+{
+    public int Value;
+
+    public Number(int value)
+    {
+        Value = value;
+    }
+
+    public static Number operator +(Number a, Number b)
+    {
+        return new Number(a.Value + b.Value);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Number n1 = new Number(7);
+        Number n2 = new Number(13);
+        Number result = n1 + n2;
+
+        Console.WriteLine("Sum is: " + result.Value);
+    }
+}

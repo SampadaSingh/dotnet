@@ -1,0 +1,59 @@
+using System;
+
+namespace Lab_Q2
+{
+    class ConstructorDemo
+    {
+        private int value;
+
+        // Default Constructor
+        public ConstructorDemo()
+        {
+            value = 10;
+            Console.WriteLine("Default Constructor: Value = " + value);
+        }
+
+        // Parameterized Constructor
+        public ConstructorDemo(int num)
+        {
+            value = num;
+            Console.WriteLine("Parameterized Constructor: Value = " + value);
+        }
+
+        // Copy Constructor
+        public ConstructorDemo(ConstructorDemo obj)
+        {
+            value = obj.value;
+            Console.WriteLine("Copy Constructor: Value = " + value);
+        }
+
+        // Static Constructor
+        static ConstructorDemo()
+        {
+            Console.WriteLine("Static Constructor called.");
+        }
+
+        // Private Constructor
+        private ConstructorDemo(string msg)
+        {
+            Console.WriteLine("Private Constructor: " + msg);
+        }
+
+        public static void CallPrivateConstructor()
+        {
+            ConstructorDemo obj = new ConstructorDemo("This is a private constructor");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("--- Constructor Demonstration ---");
+            ConstructorDemo obj1 = new ConstructorDemo();          // Default constructor
+            ConstructorDemo obj2 = new ConstructorDemo(40);        // Parameterized constructor
+            ConstructorDemo obj3 = new ConstructorDemo(obj2);      // Copy constructor
+            ConstructorDemo.CallPrivateConstructor();              // Private constructor
+        }
+    }
+}

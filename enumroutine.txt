@@ -1,0 +1,25 @@
+using System;
+
+namespace Lab_1_Q3
+{
+    class Program
+    {
+        enum DotNetRoutine
+        {
+            Sunday = 1,
+            Wednesday,
+            Thursday,
+            Friday
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Dot Net Technology Class Routine:");
+
+            foreach (DotNetRoutine day in Enum.GetValues(typeof(DotNetRoutine)))
+            {
+                Console.WriteLine($"Class on {day}");
+            }
+        }
+    }
+}

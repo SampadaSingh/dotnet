@@ -1,0 +1,37 @@
+using System;
+
+class Animal
+{
+    public void Eat()
+    {
+        Console.WriteLine("Animal eats.");
+    }
+}
+
+class Dog : Animal
+{
+    public void Bark()
+    {
+        Console.WriteLine("Dog barks.");
+    }
+}
+
+class Labrador : Dog
+{
+    public void Play()
+    {
+        Console.WriteLine("Labrador plays.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Multilevel Inheritance:");
+        Labrador labrador = new Labrador();
+        labrador.Eat();
+        labrador.Bark();
+        labrador.Play();
+    }
+}

@@ -1,0 +1,22 @@
+using System;
+
+class Program
+{
+    public static int Add(int x, int y)
+    {
+        return x + y;
+    }
+
+    public static int Add(int x, int y, int z)
+    {
+        return x + y + z;
+    }
+
+    static void Main()
+    {
+        int x = 5, y = 6, z = 7;
+
+        Console.WriteLine("Sum of " + x + " and " + y + " = " + Add(x, y));
+        Console.WriteLine("Sum of " + x + ", " + y + " and " + z + " = " + Add(x, y, z));
+    }
+}
