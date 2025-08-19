@@ -1,0 +1,32 @@
+using System;
+
+namespace DelegateExample
+{
+    public delegate void MyDelegate(string message);
+
+    class Program
+    {
+        public static void PrintMessage(string msg)
+        {
+            Console.WriteLine("Message: " + msg);
+        }
+
+        public static void PrintUpperCase(string msg)
+        {
+            Console.WriteLine("Uppercase: " + msg.ToUpper());
+        }
+
+        static void Main(string[] args)
+        {
+            MyDelegate del1 = new MyDelegate(PrintMessage);
+            MyDelegate del2 = new MyDelegate(PrintUpperCase);
+
+            del1("Hello");
+            del2("Hello");
+
+            MyDelegate multiDel = del1 + del2;
+            Console.WriteLine("\nMulticast delegate output:");
+            multiDel("Hello Multicast!");
+        }
+    }
+}
